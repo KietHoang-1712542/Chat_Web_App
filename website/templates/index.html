@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+
+{% if login %}
+{% block messageGreen%}
+{{ session["name"] }} logged in!
+{% endblock %}
+{% endif %}
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Message" aria-label="Message" id="msg">
+  <div class="input-group-append">
+    <button id="sendBtn" class="btn btn-outline-secondary" type="button">Send</button>
+  </div>
+</div>
+
+<p id="test">not thing</p>
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+
+<script type="text/javascript">
+  //window.addEventListener("load", setInterval(update, 100));
+  setInterval(update, 100);
+  //window.onload = setInterval(update, 100);
+</script>
+
+{% endblock %}
